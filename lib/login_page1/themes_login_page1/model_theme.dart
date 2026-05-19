@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:day_24/themes/theme_preference.dart';
-import 'package:ui_login_pages/themes/theme_shared_preferance.dart';
+import 'package:ui_login_pages/login_page1/themes_login_page1/theme_shared_preferance.dart';
 
 class ThemeModel extends ChangeNotifier {
   bool _isDark = false;

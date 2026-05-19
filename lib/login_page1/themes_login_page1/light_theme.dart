@@ -3,7 +3,6 @@ import 'app_colors.dart';
 
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
-  dialogBackgroundColor: AppColors.bodyColor,
   primaryColor: AppColors.bodyColor,
 
   scaffoldBackgroundColor: AppColors.bodyColor,

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_login_pages/themes/model_theme.dart';
+import 'package:ui_login_pages/login_page1/themes_login_page1/model_theme.dart';
 
 class LoginPage1 extends StatefulWidget {
   @override
