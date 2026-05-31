@@ -1,33 +1,29 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
-  const MyButton({
-    super.key,
-    required this.theme,
-    required this.onPressed,
-    required this.text,
-    this.color,
-  });
+/// Functional widget version of the original `MyButton` class.
+///
+/// Parameters:
+/// * [theme] – Theme data used to style the button text.
+/// * [onPressed] – Callback when the button is tapped.
+/// * [text] – Button label.
+/// * [color] – Optional background color.
+Widget MyButton({
+  required ThemeData theme,
+  required VoidCallback? onPressed,
+  required String text,
+  Color? color,
+  bool border = true,
+}) {
+  return MaterialButton(
+    onPressed: onPressed,
+    child: Text(text, style: theme.textTheme.titleMedium),
+    height: 60,
+    minWidth: double.infinity,
+    color: color,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(50),
 
-  final ThemeData theme;
-  final Function()? onPressed;
-  final String text;
-  final Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: onPressed,
-      child: Text(text, style: theme.textTheme.titleMedium),
-      height: 60,
-
-      color: color ?? null,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadiusGeometry.circular(50),
-
-        side: BorderSide(color: Colors.black),
-      ),
-      // padding: EdgeInsets.symmetric(horizontal: 40),
-    );
-  }
+      side: border ? BorderSide(color: Colors.black) : BorderSide.none,
+    ),
+  );
 }

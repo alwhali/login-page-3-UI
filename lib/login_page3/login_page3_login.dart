@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:ui_login_pages/components/button.dart';
 import 'package:ui_login_pages/components/text_field.dart';
 import 'package:ui_login_pages/login_page3/app_color3.dart';
@@ -11,63 +12,98 @@ class LoginPage3Login extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     ThemeData theme = AppTheme3.appTheme3;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(elevation: 0, backgroundColor: Colors.white),
-        body: SingleChildScrollView(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(elevation: 0, backgroundColor: Colors.white),
+      body: SafeArea(
+        child: SizedBox(
+          height: size.height,
+          width: double.infinity,
           child: Column(
             children: [
-              Center(
+              Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                     children: [
-                      Text("Login", style: theme.textTheme.titleLarge),
-                      SizedBox(height: 20),
-                      Text(
-                        "Login to your account",
-                        style: theme.textTheme.titleSmall,
-                      ),
-                      SizedBox(height: 20),
-                      //textfield email
-                      MyTextField(lable: "Email"),
-                      SizedBox(height: 20),
-                      //textfield password
-                      MyTextField(lable: "password"),
-                      SizedBox(height: 60),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: MyButton(
-                              theme: theme,
-                              color: AppColor3().green,
-                              text: 'Login',
-                              onPressed: () {},
+                      //title and subtitle of the page
+                      FadeInUp(
+                        duration: const Duration(milliseconds: 600),
+                        child: Column(
+                          children: [
+                            Text("Login", style: theme.textTheme.titleLarge),
+                            const SizedBox(height: 20),
+                            Text(
+                              "Login to your account",
+                              style: theme.textTheme.titleSmall,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      SizedBox(height: 40),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Don't have an account?",
-                            style: theme.textTheme.titleSmall,
-                          ),
-                          Text("Sign Up", style: theme.textTheme.titleMedium),
-                        ],
+
+                      //email and password field
+                      FadeInUp(
+                        duration: const Duration(milliseconds: 800),
+                        child: Column(
+                          children: [
+                            MyTextField(lable: "Email"),
+                            const SizedBox(height: 20),
+                            MyTextField(lable: "password", obscureText: true),
+                          ],
+                        ),
                       ),
-                      SizedBox(height: 20),
+
+                      FadeInUp(
+                        duration: const Duration(milliseconds: 1000),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: MyButton(
+                                border: false,
+                                theme: theme,
+                                color: AppColor3().green,
+                                text: 'Login',
+                                onPressed: () {},
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      FadeInUp(
+                        duration: const Duration(milliseconds: 1200),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Don't have an account?",
+                              style: theme.textTheme.titleSmall,
+                            ),
+                            Text("Sign Up", style: theme.textTheme.titleMedium),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
-              Image.asset(
-                "assets/assets_loging_page3/background.png",
-                height: 300,
-                width: 400,
+
+              FadeInUp(
+                duration: const Duration(milliseconds: 1600),
+
+                child: Container(
+                  height: size.height / 3,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: const AssetImage(
+                        "assets/assets_loging_page3/background.png",
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

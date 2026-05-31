@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_login_pages/components/button.dart';
 import 'package:ui_login_pages/login_page3/app_color3.dart';
@@ -16,18 +17,26 @@ class _LoginPage3WelcomeState extends State<LoginPage3Welcome> {
   ThemeData theme = AppTheme3.appTheme3;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
 
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50),
+            child: Column(
+              //by defualt crossAxisAlignment is center
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Welcome", style: theme.textTheme.titleLarge),
+                FadeInUp(
+                  duration: Duration(milliseconds: 1000),
+                  child: Text("Welcome", style: theme.textTheme.titleLarge),
+                ),
                 SizedBox(height: 20),
-                Center(
+                FadeInUp(
+                  duration: Duration(milliseconds: 1300),
                   child: Text(
                     "Atomatic identity verification which enable you verify your identity",
                     style: theme.textTheme.titleSmall,
@@ -36,45 +45,48 @@ class _LoginPage3WelcomeState extends State<LoginPage3Welcome> {
                 ),
 
                 SizedBox(height: 20),
-                Image.asset(
-                  "assets/assets_loging_page3/Illustration.png",
-                  height: 300,
-                  width: 300,
+                FadeInUp(
+                  duration: Duration(milliseconds: 1400),
+                  child: Container(
+                    height: size.height / 3,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "assets/assets_loging_page3/Illustration.png",
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 40),
-                Row(
-                  children: [
-                    Expanded(
-                      child: MyButton(
-                        theme: theme,
-                        text: 'Login',
-                        onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginPage3Login(),
-                          ),
-                        ),
+                FadeInUp(
+                  duration: Duration(milliseconds: 1500),
+                  child: MyButton(
+                    theme: theme,
+                    text: 'Login',
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage3Login(),
                       ),
                     ),
-                  ],
+                  ),
                 ),
-                SizedBox(height: 20),
-                Row(
-                  children: [
-                    Expanded(
-                      child: MyButton(
-                        theme: theme,
-                        onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginPage3SignUp(),
-                          ),
-                        ),
-                        text: 'Sign Up',
-                        color: AppColor3().yellow,
+                SizedBox(height: 10),
+                FadeInUp(
+                  duration: Duration(milliseconds: 1600),
+                  child: MyButton(
+                    border: false,
+                    theme: theme,
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage3SignUp(),
                       ),
                     ),
-                  ],
+                    text: 'Sign Up',
+                    color: AppColor3().yellow,
+                  ),
                 ),
               ],
             ),

@@ -15,7 +15,7 @@ class AppTheme3 {
         fontWeight: FontWeight.w500,
       ),
 
-      titleSmall: TextStyle(color: Colors.black45, fontSize: 18),
+      titleSmall: TextStyle(color: Colors.grey[700], fontSize: 18),
     ),
   );
 }
