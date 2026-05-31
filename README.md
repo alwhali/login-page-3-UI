@@ -1,16 +1,44 @@
-# ui_login_pages
+# UI Login Pages
 
-A new Flutter project.
+A small Flutter project that demonstrates three different login‑page designs.
+
+## Features
+
+* **Animated welcome page** – uses `animate_do`'s `FadeInUp` for a smooth entrance.
+* **Login page** – shows how to wrap essential widgets with `FadeInUp` without external packages.
+* **Sign‑up page** – each child widget is animated individually.
+* **Reusable components** – `MyTextField` and `MyButton` are now functional widgets with an `obscureText` flag for password fields.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. **Install Flutter** – follow the official guide at https://flutter.dev.
+2. **Clone the repository** and navigate to the project root.
+3. Run `flutter pub get` to fetch dependencies (the project uses `animate_do`).
+4. Launch the app with `flutter run` on your preferred device or emulator.
 
-A few resources to get you started if this is your first Flutter project:
+## Project Structure
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+lib/
+│   main.dart                 # Entry point
+│
+├─ components/
+│   ├─ button.dart            # Functional MyButton widget
+│   └─ text_field.dart        # Functional MyTextField widget
+│
+└─ login_page3/
+    ├─ app_color3.dart        # Color definitions
+    ├─ app_theme3.dart        # Theme data
+    ├─ login_page3_welcome.dart  # Welcome screen with animations
+    ├─ login_page3_login.dart    # Login screen with FadeInUp on essential widgets
+    └─ login_page3_signup.dart   # Sign‑up screen with child‑level animations
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Customisation
+
+* To change animation timings, edit the `duration` values in the `FadeInUp` widgets.
+* The `MyButton` widget accepts an optional `color` parameter to customise its background.
+* The `MyTextField` widget now supports `obscureText` for password inputs.
+
+## how change page or screen 
+- go to `main.dart` and change the `home` parameter in `runApp` to the page you want to show.
